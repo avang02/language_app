@@ -35,7 +35,7 @@ async function  createQuestion(req, res) {
     category: req.body.category,
     answers: req.body.answers,
     correctAnswer: req.body.correctAnswer,
-    explanation: req.body.explanaion,
+    explanation: req.body.explanation,
   });
   try {
     const newQuestion = await question.save();

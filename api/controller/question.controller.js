@@ -38,8 +38,13 @@ async function  createQuestion(req, res) {
     explanation: req.body.explanation,
   });
   try {
-    const newQuestion = await question.save();
-    res.status(201).json(newQuestion);
+    const questionExists = await Question.findOne({question: req.body.question});
+    if (questionExists) {
+      res.status(400).json({message: "Error: Question already exists"})
+    } else {
+      const newQuestion = await question.save();
+      res.status(201).json(newQuestion);
+    }
   } catch (error) {
     res.status(400).json({message: error.message});
   }

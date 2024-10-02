@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function CreateQuestion() {
@@ -7,6 +8,8 @@ export default function CreateQuestion() {
   const [answers, setAnswers] = useState(["", "", "", ""]);
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [explanation, setExplanation] = useState("");
+
+  const navigate = useNavigate();
 
   const handleAnswerChange = (idx, value) => {
     const newAnswers = [...answers];
@@ -36,7 +39,8 @@ export default function CreateQuestion() {
   }
 
   return (
-    <div className="flex items-center justify-center w-screen h-screen">
+    <div className="relative flex items-center justify-center w-screen h-screen">
+      <button className="absolute top-10 left-10 border border-solid border-black rounded-full px-2" onClick={() => navigate(-1)}>{"<"}</button>
       <form className="flex flex-col w-1/2 gap-6" onSubmit={handleSubmit}>
         <div className="flex flex-col">
             <label>Category: </label>

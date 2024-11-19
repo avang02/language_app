@@ -1,0 +1,101 @@
+
+[
+  {
+    "name": "level 1",
+    "contents": {
+      "japanese": ["あ", "い", "う", "え", "お"],
+      "english": ["a", "i", "u", "e", "o"]
+    }
+  },
+  {
+      "name": "level 2",
+      "contents": {
+        "japanese": ["か", "き", "く", "け", "こ"],
+        "english": ["ka", "ki", "ku", "ke", "ko"]
+      }
+  },
+  {
+    "name": "level 3",
+    "contents": {
+      "japanese": ["な", "に", "ぬ", "ね", "の"],
+      "english": ["na", "ni", "nu", "ne", "no"]
+    }
+  },
+  {
+    "name": "level 4",
+    "contents": {
+      "japanese": ["さ", "し", "す", "せ", "そ"],
+      "english": ["sa", "shi", "su", "se", "so"]
+    }
+  },
+  {
+    "name": "level 5",
+    "contents": {
+      "japanese": ["た", "ち", "つ", "て", "と"],
+      "english": ["ta", "chi", "tsu", "te", "to"]
+    }
+  },
+  {
+    "name": "level 6",
+    "contents": {
+      "japanese": ["ま", "み", "む", "む", "も"],
+      "english": ["ma", "mi", "mu", "me", "mo"]
+    }
+  },
+  {
+    "name": "level 7",
+    "contents": {
+      "japanese": ["ら", "り", "る", "れ", "ろ"],
+      "english": ["ra", "ri", "ru", "re", "ro"]
+    }
+  },
+  {
+    "name": "level 8",
+    "contents": {
+      "japanese": ["や", "ゆ", "よ", "わ", "を", "ん"],
+      "english": ["ya", "yu", "yo", "wa", "o", "n"]
+    }
+  },
+  {
+    "name": "level 9",
+    "contents": {
+      "japanese": ["は", "ひ", "ふ", "へ", "ほ"],
+      "english": ["ha", "hi", "fu", "he", "ho"]
+    }
+  },
+  {
+    "name": "level 10",
+    "contents": {
+      "japanese": ["が", "ぎ", "ぐ", "げ", "ご"],
+      "english": ["ga", "gi", "gu", "ge", "go"]
+    }
+  },
+  {
+    "name": "level 11",
+    "contents": {
+      "japanese": ["ぢ", "じ", "ず", "ぜ", "ぞ"],
+      "english": ["za", "zi", "zu", "ze", "zo"]
+    }
+  },
+  {
+    "name": "level 12",
+    "contents": {
+      "japanese": ["だ", "ぢ", "づ", "で", "で"],
+      "english": ["da", "ji", "zu", "de", "do"]
+    }
+  },
+  {
+    "name": "level 13",
+    "contents": {
+      "japanese": ["ば", "び", "ぶ", "べ", "ぼ"],
+      "english": ["ba", "bi", "bu", "be", "bo"]
+    }
+  },
+  {
+    "name": "level 14",
+    "contents": {
+      "japanese": ["ぱ", "ぴ", "ぷ", "ぺ", "ぽ"],
+      "english": ["pa", "pi", "pu", "pe", "po"]
+    }
+  }
+]

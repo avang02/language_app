@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import {useLocation, useNavigate} from "react-router-dom";
-import Japanese from "../JapaneseAssets/japanese.json"
+import Japanese from "../LanguageAssets/japanese.json"
 
 export default function JapaneseQuiz() {
 

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "level 1",
+    "contents": {
+      "korean": ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ"],
+      "english": ["g,k", "n", "d,t", "r,l", "m"]
+    }
+  },
+  {
+    "name": "level 2",
+    "contents": {
+      "korean": ["ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ"],
+      "english": ["b,p", "s", "ng", "j", "ch"]
+    }
+  },
+  {
+    "name": "level 3",
+    "contents": {
+      "korean": ["ㅋ", "ㅌ", "ㅍ", "ㅎ"],
+      "english": ["k", "t", "p", "h"]
+    }
+  },
+  {
+    "name": "level 4",
+    "contents": {
+      "korean": ["ㅏ", "ㅑ", "ㅓ", "ㅕ", "ㅗ"],
+      "english": ["a", "ya", "eo", "yeo", "o"]
+    }
+  },
+  {
+    "name": "level 5",
+    "contents": {
+      "korean": ["ㅛ", "ㅜ", "ㅠ", "ㅡ", "ㅣ"],
+      "english": ["yo", "u", "yu", "eu", "i"]
+    }
+  },
+  {
+    "name": "level 6",
+    "contents": {
+      "korean": ["ㅛ", "ㅜ", "ㅠ", "ㅡ", "ㅣ"],
+      "english": ["yo", "u", "yu", "eu", "i"]
+    }
+  },
+  {
+    "name": "level 7",
+    "contents": {
+      "korean": ["ㄲ", "ㄸ", "ㅃ", "ㅆ", "ㅉ"],
+      "english": ["kk", "tt", "pp", "ss", "jj"]
+    }
+  },
+  {
+    "name": "level 8",
+    "contents": {
+      "korean": ["ㄲ", "ㄸ", "ㅃ", "ㅆ", "ㅉ"],
+      "english": ["kk", "tt", "pp", "ss", "jj"]
+    }
+  },
+  {
+    "name": "level 9",
+    "contents": {
+      "korean": ["ㅐ", "ㅒ", "ㅔ", "ㅖ", "ㅘ"],
+      "english": ["ae", "yae", "e", "ye", "wa"]
+    }
+  },
+  {
+    "name": "level 10",
+    "contents": {
+      "korean": ["ㅙ", "ㅚ ", "ㅝ", "ㅞ", "ㅟ", "ㅢ"],
+      "english": ["wae", "oe", "wo", "we", "wi", "ui"]
+    }
+  }
+]

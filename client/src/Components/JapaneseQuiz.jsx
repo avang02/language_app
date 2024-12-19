@@ -1,15 +1,14 @@
 
 import { useState, useEffect } from "react";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
+import Japanese from "../JapaneseAssets/japanese.json"
 
 export default function JapaneseQuiz() {
+
+  // Configure react-router-dom
   const location = useLocation();
   const route = location.state;
-  const title = route.name;
-
-  // These will be used as the "Correct Answers" for this game
-  const japaneseContent = route.contents.japanese;
-  const englishContent = route.contents.english;
+  const navigate = useNavigate();
 
   const [japSelect, setJapSelect] = useState();
   const [engSelect, setEngSelect] = useState();
@@ -21,7 +20,13 @@ export default function JapaneseQuiz() {
   const [correctCount, setCorrectCount] = useState(0);
   const [isCorrect, setIsCorrect] = useState("");
   const [openGameOver, setOpenGameOver] = useState(false);
+  const [practice, setPractice] = useState(true);
   
+  // These will be used as the "Correct Answers" for this game
+  const index = route?.index;
+  console.log(index)
+  const englishContent = Japanese[index].contents.english;
+  const japaneseContent = Japanese[index].contents.japanese;
 
   useEffect(() => {
     let japaneseContentCopy = [...japaneseContent];
@@ -42,10 +47,10 @@ export default function JapaneseQuiz() {
     setRandomizedJap([...japaneseContentCopy]);
     setRandomizedEng([...englishContentCopy])
     setGameStart(true);
-  }, [])
+  }, [practice]);
 
   function checkWin() {
-    if (correctCount === japaneseContent.length) {
+    if (correctCount === japaneseContent.length-1) {
       setOpenGameOver(true);
     }
   }
@@ -54,22 +59,53 @@ export default function JapaneseQuiz() {
     const japIdx = japaneseContent.findIndex(jap => jap === randomizedJap[japSelect]);
     const engIdx = englishContent.findIndex(eng => eng === randomizedEng[engSelect]);
 
-    if (japIdx === engIdx) {
-      setCorrectCount(correctCount+1)
-      setCorrectJap([...correctJap, japSelect]);
-      setCorrectEng([...correctEng, engSelect]);
-      setIsCorrect(true);
-    } else {
-      setIsCorrect(false);
+    if (!(japSelect === undefined && engSelect === undefined)) {
+      if (japIdx === engIdx) {
+        setCorrectCount((prevCount) => prevCount+1)
+        setCorrectJap([...correctJap, japSelect]);
+        setCorrectEng([...correctEng, engSelect]);
+        setIsCorrect(true);
+      } else {
+        setIsCorrect(false);
+      }
     }
     setJapSelect();
     setEngSelect();
     checkWin();
   }
 
+  // Function to reset quiz
+  function reset() {
+    setGameStart(false)
+    setJapSelect();
+    setEngSelect();
+    setRandomizedEng();
+    setRandomizedJap();
+    setCorrectJap([]);
+    setCorrectEng([]);
+    setCorrectCount(0);
+    setIsCorrect("");
+    setOpenGameOver(false);
+    setPractice((prev) => !prev);
+  }
+
+  function nextLevel() {
+    reset();
+    navigate("/japanesequiz",{state:{"index": index+1}})
+  }
+
+  // Modal for gameover to popup after quiz is complete
+  const GameOverModal = () => (
+    <div className="flex flex-col items-center justify-center w-full h-full bg-black bg-opacity-50">
+        <h1 className="text-2xl">Nice job!</h1>
+        <button onClick={() => reset()}>Practice Again</button>
+        <button onClick={() => nextLevel()}>Next Level</button>
+    </div>
+  )
+
   const MainGame = () => (
     <div className="flex flex-col w-full min-h-screen items-center justify-center gap-14">
-      <h1 className="text-4xl font-medium">{title}</h1>
+      <h1 className="text-4xl font-medium">{Japanese[index].name}</h1>
 
       <h1 className="text-4xl font-medium">Score: {correctCount}/5</h1>
 
@@ -105,12 +141,17 @@ export default function JapaneseQuiz() {
         <h1 className={`${isCorrect==="" && "invisible"} ${isCorrect ? "text-green-600" : "text-red-600"} text-3xl`}>{`${isCorrect ? "Correct!" : "Wrong! Try again."}`}</h1>
 
         {/* Checks if the characters are correct */}
-        <button 
-          className="w-fit text-3xl border border-black py-2 px-4 rounded-lg hover:bg-black hover:text-white"
-          onClick={() => checkCorrect()}
-        >
-          Check
-        </button>
+        {
+          openGameOver ?
+          <GameOverModal />
+          :
+          <button 
+            className="w-fit text-3xl border border-black py-2 px-4 rounded-lg hover:bg-black hover:text-white"
+            onClick={() => checkCorrect()}
+          >
+            Check
+          </button>
+        }
       </div>
     </div>
   )

@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 import Japanese from "../JapaneseAssets/japanese.json"
 
@@ -19,7 +18,7 @@ export default function LanguageLevel() {
             <div key={index}>
                 <button 
                   className="w-28 border border-black py-2 px-4 rounded-full hover:text-white hover:bg-black"
-                  onClick={() => navigate("/japanesequiz", {state:{"name": jap.name, "contents": jap.contents}})}
+                  onClick={() => navigate("/japanesequiz", {state:{"index": index}})}
                 >
                   {jap.name}
                 </button>

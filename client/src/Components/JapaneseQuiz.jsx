@@ -74,9 +74,9 @@ export default function JapaneseQuiz() {
     checkWin();
   }
 
-  // Function to reset quiz
+  // Function to reset quiz, maybe there is a way to compress this
   function reset() {
-    setGameStart(false)
+    setGameStart(false);
     setJapSelect();
     setEngSelect();
     setRandomizedEng();
@@ -91,22 +91,32 @@ export default function JapaneseQuiz() {
 
   function nextLevel() {
     reset();
-    navigate("/japanesequiz",{state:{"index": index+1}})
+    navigate("/japanesequiz", {state:{"index": index+1}});
   }
 
   // Modal for gameover to popup after quiz is complete
   const GameOverModal = () => (
-    <div className="flex flex-col items-center justify-center w-full h-full bg-black bg-opacity-50">
+    <div className="flex flex-col items-center justify-center w-full h-full">
         <h1 className="text-2xl">Nice job!</h1>
-        <button onClick={() => reset()}>Practice Again</button>
-        <button onClick={() => nextLevel()}>Next Level</button>
+        <div className="flex justify-between w-full mt-20">
+          <button className="border border-black rounded-2xl py-2 px-4 hover:bg-black hover:text-white" onClick={() => reset()}>Practice Again</button>
+          <button className="border border-black rounded-2xl py-2 px-4 hover:bg-black hover:text-white" onClick={() => nextLevel()}>Next Level</button>
+        </div>
     </div>
   )
 
   const MainGame = () => (
-    <div className="flex flex-col w-full min-h-screen items-center justify-center gap-14">
-      <h1 className="text-4xl font-medium">{Japanese[index].name}</h1>
+    <div className="relative flex flex-col w-full min-h-screen items-center justify-center gap-14">
 
+      {/* Goes back to level selection */}
+      <button 
+        className="absolute left-10 top-10 text-2xl font-medium" 
+        onClick={() => navigate("/languagelevel")}
+      >
+        Back
+      </button>
+
+      <h1 className="text-4xl font-medium">{Japanese[index].name}</h1>
       <h1 className="text-4xl font-medium">Score: {correctCount}/5</h1>
 
       <div className="w-fit h-fit flex flex-col gap-20">
@@ -140,7 +150,7 @@ export default function JapaneseQuiz() {
 
         <h1 className={`${isCorrect==="" && "invisible"} ${isCorrect ? "text-green-600" : "text-red-600"} text-3xl`}>{`${isCorrect ? "Correct!" : "Wrong! Try again."}`}</h1>
 
-        {/* Checks if the characters are correct */}
+        {/* Checks if the characters are correct and changes to game being completed */}
         {
           openGameOver ?
           <GameOverModal />

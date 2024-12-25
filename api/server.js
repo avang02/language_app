@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const axios = require("axios");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -18,6 +19,7 @@ db.once("open", () => console.log("Connected to Database"));
 app.use(express.json());
 
 const questionRouter = require("./routes/question.route");
+const kanjiRouter = require("./routes/kanji.route")
 app.use("/api/question", questionRouter);
 
 app.listen(3000, () => console.log("Server Started"));
